@@ -150,12 +150,12 @@ public enum ScipioTestFailures implements FailureProvider {
 Build a failure on your own:
 ```java
 FailureDescription description = new FailureDescriptionBuilder()
-                   			.setSystem("Custom")
-                   			.setApplication("Error")
-                   			.setFailure("example")
-                   			.setTimestamp(System.currentTimeMillis())
-                   			.setPriority(Priority.WARNING)
-                   			.createSimpleFailureDescription();
+	.setSystem("Custom")
+        .setApplication("Error")
+        .setFailure("example")
+        .setTimestamp(System.currentTimeMillis())
+        .setPriority(Priority.WARNING)
+        .createSimpleFailureDescription();
 ```
 
 Work with meta data:
