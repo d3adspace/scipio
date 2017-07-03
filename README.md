@@ -4,6 +4,9 @@ reporting framework. You can use custom handlers to broadcast failure
 descriptions across your internal network. You can provide those failures
 in an enumeration or built a fully custom one.
 
+By adding a handler you can control how your failures will be handled. You can post them
+to a RESTful service or just save them in a database to be reviewed from a monitor application.
+
 # Installation / Usage
 
 - Install [Maven](http://maven.apache.org/download.cgi)
