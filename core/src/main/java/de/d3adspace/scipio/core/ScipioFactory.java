@@ -19,24 +19,21 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package de.d3adspace.scipio.handler.logger;
-
-import de.d3adspace.scipio.description.FailureDescription;
-import de.d3adspace.scipio.handler.FailureHandler;
-import java.util.logging.Logger;
+package de.d3adspace.scipio.core;
 
 /**
- * Basic handler that prints the failures to console (Logger).
+ * Create a new scipio instance.
  *
  * @author Felix 'SasukeKawaii' Klauke, Nathalie0hneHerz
  */
-public class FailureHandlerConsoleLogger implements FailureHandler {
+public class ScipioFactory {
 	
-	private final Logger logger = Logger
-		.getLogger(FailureHandlerConsoleLogger.class.getSimpleName());
-	
-	@Override
-	public void handleFailure(FailureDescription failureDescription) {
-		this.logger.warning(String.valueOf(failureDescription));
+	/**
+	 * The one and only way to instantiate scipio.
+	 *
+	 * @return The scipio instance.
+	 */
+	public static Scipio createScipio() {
+		return new SimpleScipio();
 	}
 }

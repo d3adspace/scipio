@@ -19,44 +19,43 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package de.d3adspace.scipio.meta;
+package de.d3adspace.scipio.core.provider;
+
+import de.d3adspace.scipio.core.priority.Priority;
 
 /**
- * A container as a metadata store to prohibit direct access to the meta data and reduce the
- * access options down to basic CRUD operations.
+ * Offer the possibility to create an enum or another sort of constant provider and create
+ * a failure description from it.
  *
- * @author Nathalie0hneHerz
+ * @author Nathalie0hneHerz, Felix 'SasukeKawaii' Klauke
  */
-public interface MetadataContainer {
+public interface FailureProvider {
 	
 	/**
-	 * Store a new metadata entry.
+	 * Get the system the failure occured on.
 	 *
-	 * @param key The key.
-	 * @param value The value.
+	 * @return The system.
 	 */
-	void addMetadataEntry(String key, String value);
+	String getSystem();
 	
 	/**
-	 * Remove a metadata entry.
+	 * Get the application the error occured in.
 	 *
-	 * @param key The key.
+	 * @return The application.
 	 */
-	void removeMetadataEntry(String key);
+	String getApplication();
 	
 	/**
-	 * Check if there is a metadata entry for the given key.
+	 * The failure that occured.
 	 *
-	 * @param key The key.
-	 * @return If there is an entry.
+	 * @return The failure.
 	 */
-	boolean containsMetadataEntry(String key);
+	String getFailure();
 	
 	/**
-	 * Get a metadata entry by its key.
+	 * The priority of the failure.
 	 *
-	 * @param key The key.
-	 * @return The value.
+	 * @return The priority.
 	 */
-	String getMetadataValue(String key);
+	Priority getPriority();
 }

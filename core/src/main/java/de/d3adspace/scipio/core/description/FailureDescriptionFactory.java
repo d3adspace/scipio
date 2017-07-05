@@ -19,10 +19,10 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package de.d3adspace.scipio.description;
+package de.d3adspace.scipio.core.description;
 
-import de.d3adspace.scipio.priority.Priority;
-import de.d3adspace.scipio.provider.FailureProvider;
+import de.d3adspace.scipio.core.priority.Priority;
+import de.d3adspace.scipio.core.provider.FailureProvider;
 
 /**
  * Create a description.

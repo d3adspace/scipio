@@ -19,21 +19,52 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package de.d3adspace.scipio;
+package de.d3adspace.scipio.core.executor;
+
+import de.d3adspace.scipio.core.SimpleScipio;
+import de.d3adspace.scipio.core.description.FailureDescription;
 
 /**
- * Create a new scipio instance.
+ * The Agent who will report all incoming failures.
  *
- * @author Felix 'SasukeKawaii' Klauke, Nathalie0hneHerz
+ * @author Felix 'SasukeKawaii' Klauke
  */
-public class ScipioFactory {
+public class FailureReporterTask implements Runnable {
 	
 	/**
-	 * The one and only way to instantiate scipio.
-	 *
-	 * @return The scipio instance.
+	 * The Scipio instance the reporter is working for.
 	 */
-	public static Scipio createScipio() {
-		return new SimpleScipio();
+	private final SimpleScipio scipio;
+	
+	/**
+	 * Create a new reporter task.
+	 *
+	 * @param scipio The scipio instance to work for.
+	 */
+	public FailureReporterTask(SimpleScipio scipio) {
+		this.scipio = scipio;
+	}
+	
+	@Override
+	public void run() {
+	    while (true) {
+	    	
+		    if (this.scipio.getPendingFailures().isEmpty()) {
+			    synchronized (this) {
+				    try {
+					    this.wait();
+				    } catch (InterruptedException e) {
+					    e.printStackTrace();
+				    }
+			    }
+		    }
+	    	
+		    FailureDescription failureDescription = this.scipio.getPendingFailures().peek();
+		    
+		    if (failureDescription != null) {
+		    	this.scipio.getFailureHandlerContainer().handleFailure(failureDescription);
+		    	this.scipio.getPendingFailures().remove();
+		    }
+	    }
 	}
 }

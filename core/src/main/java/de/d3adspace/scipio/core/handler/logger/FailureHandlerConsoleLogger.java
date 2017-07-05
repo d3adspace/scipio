@@ -19,43 +19,24 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package de.d3adspace.scipio.provider;
+package de.d3adspace.scipio.core.handler.logger;
 
-import de.d3adspace.scipio.priority.Priority;
+import de.d3adspace.scipio.core.description.FailureDescription;
+import de.d3adspace.scipio.core.handler.FailureHandler;
+import java.util.logging.Logger;
 
 /**
- * Offer the possibility to create an enum or another sort of constant provider and create
- * a failure description from it.
+ * Basic handler that prints the failures to console (Logger).
  *
- * @author Nathalie0hneHerz, Felix 'SasukeKawaii' Klauke
+ * @author Felix 'SasukeKawaii' Klauke, Nathalie0hneHerz
  */
-public interface FailureProvider {
+public class FailureHandlerConsoleLogger implements FailureHandler {
 	
-	/**
-	 * Get the system the failure occured on.
-	 *
-	 * @return The system.
-	 */
-	String getSystem();
+	private final Logger logger = Logger
+		.getLogger(FailureHandlerConsoleLogger.class.getSimpleName());
 	
-	/**
-	 * Get the application the error occured in.
-	 *
-	 * @return The application.
-	 */
-	String getApplication();
-	
-	/**
-	 * The failure that occured.
-	 *
-	 * @return The failure.
-	 */
-	String getFailure();
-	
-	/**
-	 * The priority of the failure.
-	 *
-	 * @return The priority.
-	 */
-	Priority getPriority();
+	@Override
+	public void handleFailure(FailureDescription failureDescription) {
+		this.logger.warning(String.valueOf(failureDescription));
+	}
 }

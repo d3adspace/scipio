@@ -19,12 +19,12 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package de.d3adspace.scipio;
+package de.d3adspace.scipio.core;
 
-import de.d3adspace.scipio.description.FailureDescription;
-import de.d3adspace.scipio.executor.FailureReporterTask;
-import de.d3adspace.scipio.handler.FailureHandler;
-import de.d3adspace.scipio.handler.FailureHandlerContainer;
+import de.d3adspace.scipio.core.description.FailureDescription;
+import de.d3adspace.scipio.core.executor.FailureReporterTask;
+import de.d3adspace.scipio.core.handler.FailureHandler;
+import de.d3adspace.scipio.core.handler.FailureHandlerContainer;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
@@ -84,6 +84,7 @@ public class SimpleScipio implements Scipio {
 	
 	@Override
 	public void handleFailure(FailureDescription failureDescription) {
+		
 		this.pendingFailures.offer(failureDescription);
 		
 		synchronized (reporter) {

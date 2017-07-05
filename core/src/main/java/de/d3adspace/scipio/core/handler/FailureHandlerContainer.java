@@ -19,9 +19,9 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package de.d3adspace.scipio.handler;
+package de.d3adspace.scipio.core.handler;
 
-import de.d3adspace.scipio.description.FailureDescription;
+import de.d3adspace.scipio.core.description.FailureDescription;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 

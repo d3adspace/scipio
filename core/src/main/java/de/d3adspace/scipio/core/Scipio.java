@@ -19,63 +19,39 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package de.d3adspace.scipio.meta;
+package de.d3adspace.scipio.core;
 
-import java.util.HashMap;
-import java.util.Map;
+import de.d3adspace.scipio.core.description.FailureDescription;
+import de.d3adspace.scipio.core.handler.FailureHandler;
 
 /**
- * Default meta data store implementation.
- *
  * @author Nathalie0hneHerz
  */
-public class SimpleMetadataContainer implements MetadataContainer {
+public interface Scipio {
 	
 	/**
-	 * The underlying map.
+	 * Shut down the reporter agent.
 	 */
-	private final Map<String, String> metadataStore;
+	void shutdown();
 	
 	/**
-	 * Create a meta data store from an already known map of entries.
+	 * Handle a new incoming failure.
 	 *
-	 * @param metadataStore The entries.
+	 * @param failureDescription The failure.
 	 */
-	public SimpleMetadataContainer(Map<String, String> metadataStore) {
-		this.metadataStore = metadataStore;
-	}
+	void handleFailure(FailureDescription failureDescription);
 	
 	/**
-	 * Create an empty metadata container.
+	 * Add a new failure handler.
+	 *
+	 * @param failureHandler The handler.
 	 */
-	public SimpleMetadataContainer() {
-		this(new HashMap<>());
-	}
+	void addFailureHandler(FailureHandler failureHandler);
 	
-	@Override
-	public void addMetadataEntry(String key, String value) {
-		this.metadataStore.put(key, value);
-	}
-	
-	@Override
-	public void removeMetadataEntry(String key) {
-		this.metadataStore.remove(key);
-	}
-	
-	@Override
-	public boolean containsMetadataEntry(String key) {
-		return this.metadataStore.containsKey(key);
-	}
-	
-	@Override
-	public String getMetadataValue(String key) {
-		return metadataStore.get(key);
-	}
-	
-	@Override
-	public String toString() {
-		return "SimpleMetadataContainer{" +
-			"metadataStore=" + metadataStore +
-			'}';
-	}
+	/**
+	 * Remove a failure handler.
+	 *
+	 * @param failureHandler The handler.
+	 */
+	void removeFailureHandler(FailureHandler failureHandler);
 }

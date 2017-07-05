@@ -19,7 +19,7 @@ _Scipio:_
 ```xml
 <dependency>
     <groupId>de.d3adspace</groupId>
-    <artifactId>scipio</artifactId>
+    <artifactId>scipio-core</artifactId>
     <version>1.0-SNAPSHOT</version>
 </dependency>
 ```
@@ -48,13 +48,13 @@ Setting up Scipio with a handler that prints all failures:
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import de.d3adspace.scipio.Scipio;
-import de.d3adspace.scipio.ScipioFactory;
-import de.d3adspace.scipio.description.FailureDescription;
-import de.d3adspace.scipio.description.FailureDescriptionBuilder;
-import de.d3adspace.scipio.description.FailureDescriptionFactory;
-import de.d3adspace.scipio.handler.FailureHandler;
-import de.d3adspace.scipio.priority.Priority;
+import de.d3adspace.scipio.core.Scipio;
+import de.d3adspace.scipio.core.ScipioFactory;
+import de.d3adspace.scipio.core.description.FailureDescription;
+import de.d3adspace.scipio.core.description.FailureDescriptionBuilder;
+import de.d3adspace.scipio.core.description.FailureDescriptionFactory;
+import de.d3adspace.scipio.core.handler.FailureHandler;
+import de.d3adspace.scipio.core.priority.Priority;
 
 /**
  * @author Felix 'SasukeKawaii' Klauke
@@ -103,8 +103,8 @@ scipio.handleFailure(description);
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import de.d3adspace.scipio.priority.Priority;
-import de.d3adspace.scipio.provider.FailureProvider;
+import de.d3adspace.scipio.core.priority.Priority;
+import de.d3adspace.scipio.core.provider.FailureProvider;
 
 /**
  * @author Felix 'SasukeKawaii' Klauke

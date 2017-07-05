@@ -19,20 +19,14 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package de.d3adspace.scipio.handler.logger;
-
-import de.d3adspace.scipio.description.FailureDescription;
-import de.d3adspace.scipio.handler.FailureHandler;
+package de.d3adspace.scipio.core.priority;
 
 /**
- * Basic handler that prints the failures to console (System output stream).
- *
- * @author Felix 'SasukeKawaii' Klauke
+ * @author Nathalie0hneHerz, Felix 'SasukeKawaii' Klauke
  */
-public class FailureHandlerConsole implements FailureHandler {
+public enum Priority {
 	
-	@Override
-	public void handleFailure(FailureDescription failureDescription) {
-		System.out.println(failureDescription);
-	}
+	ERROR,
+	WARNING,
+	CRITICAL
 }

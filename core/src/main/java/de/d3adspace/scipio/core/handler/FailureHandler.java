@@ -19,39 +19,21 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package de.d3adspace.scipio;
+package de.d3adspace.scipio.core.handler;
 
-import de.d3adspace.scipio.description.FailureDescription;
-import de.d3adspace.scipio.handler.FailureHandler;
+import de.d3adspace.scipio.core.description.FailureDescription;
 
 /**
- * @author Nathalie0hneHerz
+ * Interface for all failure handlers.
+ *
+ * @author Felix 'SasukeKawaii' Klauke
  */
-public interface Scipio {
+public interface FailureHandler {
 	
 	/**
-	 * Shut down the reporter agent.
-	 */
-	void shutdown();
-	
-	/**
-	 * Handle a new incoming failure.
+	 * Handle a failure.
 	 *
 	 * @param failureDescription The failure.
 	 */
 	void handleFailure(FailureDescription failureDescription);
-	
-	/**
-	 * Add a new failure handler.
-	 *
-	 * @param failureHandler The handler.
-	 */
-	void addFailureHandler(FailureHandler failureHandler);
-	
-	/**
-	 * Remove a failure handler.
-	 *
-	 * @param failureHandler The handler.
-	 */
-	void removeFailureHandler(FailureHandler failureHandler);
 }

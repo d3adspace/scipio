@@ -19,11 +19,11 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package de.d3adspace.scipio.description;
+package de.d3adspace.scipio.core.description;
 
-import de.d3adspace.scipio.meta.MetadataContainer;
-import de.d3adspace.scipio.meta.SimpleMetadataContainer;
-import de.d3adspace.scipio.priority.Priority;
+import de.d3adspace.scipio.core.meta.MetadataContainer;
+import de.d3adspace.scipio.core.meta.SimpleMetadataContainer;
+import de.d3adspace.scipio.core.priority.Priority;
 
 /**
  * @author Nathalie0hneHerz

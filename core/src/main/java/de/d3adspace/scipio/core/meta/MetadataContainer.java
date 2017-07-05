@@ -19,52 +19,44 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package de.d3adspace.scipio.executor;
-
-import de.d3adspace.scipio.SimpleScipio;
-import de.d3adspace.scipio.description.FailureDescription;
+package de.d3adspace.scipio.core.meta;
 
 /**
- * The Agent who will report all incoming failures.
+ * A container as a metadata store to prohibit direct access to the meta data and reduce the
+ * access options down to basic CRUD operations.
  *
- * @author Felix 'SasukeKawaii' Klauke
+ * @author Nathalie0hneHerz
  */
-public class FailureReporterTask implements Runnable {
+public interface MetadataContainer {
 	
 	/**
-	 * The Scipio instance the reporter is working for.
-	 */
-	private final SimpleScipio scipio;
-	
-	/**
-	 * Create a new reporter task.
+	 * Store a new metadata entry.
 	 *
-	 * @param scipio The scipio instance to work for.
+	 * @param key The key.
+	 * @param value The value.
 	 */
-	public FailureReporterTask(SimpleScipio scipio) {
-		this.scipio = scipio;
-	}
+	void addMetadataEntry(String key, String value);
 	
-	@Override
-	public void run() {
-	    while (true) {
-	    	
-		    if (this.scipio.getPendingFailures().isEmpty()) {
-			    synchronized (this) {
-				    try {
-					    this.wait();
-				    } catch (InterruptedException e) {
-					    e.printStackTrace();
-				    }
-			    }
-		    }
-	    	
-		    FailureDescription failureDescription = this.scipio.getPendingFailures().peek();
-		    
-		    if (failureDescription != null) {
-		    	this.scipio.getFailureHandlerContainer().handleFailure(failureDescription);
-		    	this.scipio.getPendingFailures().remove();
-		    }
-	    }
-	}
+	/**
+	 * Remove a metadata entry.
+	 *
+	 * @param key The key.
+	 */
+	void removeMetadataEntry(String key);
+	
+	/**
+	 * Check if there is a metadata entry for the given key.
+	 *
+	 * @param key The key.
+	 * @return If there is an entry.
+	 */
+	boolean containsMetadataEntry(String key);
+	
+	/**
+	 * Get a metadata entry by its key.
+	 *
+	 * @param key The key.
+	 * @return The value.
+	 */
+	String getMetadataValue(String key);
 }
