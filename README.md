@@ -7,6 +7,8 @@ in an enumeration or built a fully custom one.
 By adding a handler you can control how your failures will be handled. You can post them
 to a RESTful service or just save them in a database to be reviewed from a monitor application.
 
+Scipio provides two basic examples for a logger located at https://github.com/D3adspaceEnterprises/scipio/tree/master/src/main/java/de/d3adspace/scipio/handler/logger
+
 # Installation / Usage
 
 - Install [Maven](http://maven.apache.org/download.cgi)
