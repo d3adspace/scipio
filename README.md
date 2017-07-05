@@ -26,7 +26,7 @@ _Scipio:_
 </dependency>
 ```
 
-#Example
+# Example
 Setting up Scipio with a handler that prints all failures:
 ```java
 /*
