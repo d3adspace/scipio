@@ -21,34 +21,12 @@
 
 package de.d3adspace.scipio.core.handler;
 
-import de.d3adspace.scipio.core.description.FailureDescription;
-
 /**
- * The container for all failure handlers.
- *
- * @author Nathalie0hneHerz, Felix 'SasukeKawaii' Klauke
+ * @author Felix 'SasukeKawaii' Klauke
  */
-public interface FailureHandlerContainer {
+public class FailureHandlerContainerFactory {
 	
-	
-	/**
-	 * Add a new handler.
-	 *
-	 * @param failureHandler The handler.
-	 */
-	void addFailureHandler(FailureHandler failureHandler);
-	
-	/**
-	 * Remove an old handler.
-	 *
-	 * @param failureHandler The handler.
-	 */
-	void removeFailureHandler(FailureHandler failureHandler);
-	
-	/**
-	 * Handle a failure.
-	 *
-	 * @param description The failure.
-	 */
-	void handleFailure(FailureDescription description);
+	public static FailureHandlerContainer createFailureHandlerContainer() {
+		return new SimpleFailureHandlerContainer();
+	}
 }

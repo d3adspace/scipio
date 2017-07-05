@@ -25,6 +25,7 @@ import de.d3adspace.scipio.core.description.FailureDescription;
 import de.d3adspace.scipio.core.executor.FailureReporterTask;
 import de.d3adspace.scipio.core.handler.FailureHandler;
 import de.d3adspace.scipio.core.handler.FailureHandlerContainer;
+import de.d3adspace.scipio.core.handler.FailureHandlerContainerFactory;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
@@ -63,7 +64,8 @@ public class SimpleScipio implements Scipio {
 	 */
 	SimpleScipio() {
 		this.pendingFailures = new ConcurrentLinkedQueue<>();
-		this.failureHandlerContainer = new FailureHandlerContainer();
+		this.failureHandlerContainer = FailureHandlerContainerFactory
+			.createFailureHandlerContainer();
 		this.executorService = Executors.newSingleThreadExecutor();
 		this.reporter = new FailureReporterTask(this);
 		

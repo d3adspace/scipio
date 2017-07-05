@@ -22,33 +22,47 @@
 package de.d3adspace.scipio.core.handler;
 
 import de.d3adspace.scipio.core.description.FailureDescription;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
- * The container for all failure handlers.
- *
- * @author Nathalie0hneHerz, Felix 'SasukeKawaii' Klauke
+ * @author Felix 'SasukeKawaii' Klauke
  */
-public interface FailureHandlerContainer {
-	
-	
-	/**
-	 * Add a new handler.
-	 *
-	 * @param failureHandler The handler.
-	 */
-	void addFailureHandler(FailureHandler failureHandler);
+public class SimpleFailureHandlerContainer implements FailureHandlerContainer {
 	
 	/**
-	 * Remove an old handler.
-	 *
-	 * @param failureHandler The handler.
+	 * The underlying list
 	 */
-	void removeFailureHandler(FailureHandler failureHandler);
+	private final List<FailureHandler> failureHandlers;
 	
 	/**
-	 * Handle a failure.
+	 * Create a new container from a list of handlers.
 	 *
-	 * @param description The failure.
+	 * @param failureHandlers The handlers.
 	 */
-	void handleFailure(FailureDescription description);
+	SimpleFailureHandlerContainer(List<FailureHandler> failureHandlers) {
+		this.failureHandlers = failureHandlers;
+	}
+	
+	/**
+	 * Create an empty container.
+	 */
+	SimpleFailureHandlerContainer() {
+		this(new CopyOnWriteArrayList<>());
+	}
+	
+	@Override
+	public void addFailureHandler(FailureHandler failureHandler) {
+		this.failureHandlers.add(failureHandler);
+	}
+	
+	@Override
+	public void removeFailureHandler(FailureHandler failureHandler) {
+		this.failureHandlers.remove(failureHandler);
+	}
+	
+	@Override
+	public void handleFailure(FailureDescription description) {
+		this.failureHandlers.forEach(failureHandler -> failureHandler.handleFailure(description));
+	}
 }
