@@ -22,6 +22,7 @@
 package de.d3adspace.scipio.core;
 
 import de.d3adspace.scipio.core.description.FailureDescription;
+import de.d3adspace.scipio.core.exception.ScipioException;
 import de.d3adspace.scipio.core.executor.FailureReporterTask;
 import de.d3adspace.scipio.core.handler.FailureHandler;
 import de.d3adspace.scipio.core.handler.FailureHandlerContainer;
@@ -86,6 +87,9 @@ public class SimpleScipio implements Scipio {
 	
 	@Override
 	public void handleFailure(FailureDescription failureDescription) {
+		if (this.executorService.isShutdown()) {
+			throw new ScipioException("Cant handle a failure when I was already stopped.");
+		}
 		
 		this.pendingFailures.offer(failureDescription);
 		
@@ -96,6 +100,10 @@ public class SimpleScipio implements Scipio {
 	
 	@Override
 	public void addFailureHandler(FailureHandler failureHandler) {
+		if (this.executorService.isShutdown()) {
+			throw new ScipioException("Cant add a handler when I was already stopped.");
+		}
+		
 		this.failureHandlerContainer.addFailureHandler(failureHandler);
 	}
 	
