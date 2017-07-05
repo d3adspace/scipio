@@ -29,11 +29,16 @@ package de.d3adspace.scipio.core;
 public class ScipioFactory {
 	
 	/**
+	 * Instance for singleton like one instance policy
+	 */
+	private static Scipio scipio;
+	
+	/**
 	 * The one and only way to instantiate scipio.
 	 *
 	 * @return The scipio instance.
 	 */
 	public static Scipio createScipio() {
-		return new SimpleScipio();
+		return scipio == null ? (scipio = new SimpleScipio()) : scipio;
 	}
 }
