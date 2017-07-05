@@ -22,7 +22,7 @@
 package de.d3adspace.scipio.core.description;
 
 import de.d3adspace.scipio.core.meta.MetadataContainer;
-import de.d3adspace.scipio.core.meta.SimpleMetadataContainer;
+import de.d3adspace.scipio.core.meta.MetadataContainerFactory;
 import de.d3adspace.scipio.core.priority.Priority;
 
 /**
@@ -44,7 +44,7 @@ public class SimpleFailureDescription implements FailureDescription {
 		this.failure = failure;
 		this.priority = priority;
 		this.timestamp = timestamp;
-		this.metadata = new SimpleMetadataContainer();
+		this.metadata = MetadataContainerFactory.creatMetadataContainer();
 	}
 	
 	@Override
