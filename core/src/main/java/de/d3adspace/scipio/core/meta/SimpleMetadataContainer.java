@@ -30,52 +30,52 @@ import java.util.Map;
  * @author Nathalie0hneHerz
  */
 public class SimpleMetadataContainer implements MetadataContainer {
-	
-	/**
-	 * The underlying map.
-	 */
-	private final Map<String, String> metadataStore;
-	
-	/**
-	 * Create a meta data store from an already known map of entries.
-	 *
-	 * @param metadataStore The entries.
-	 */
-	SimpleMetadataContainer(Map<String, String> metadataStore) {
-		this.metadataStore = metadataStore;
-	}
-	
-	/**
-	 * Create an empty metadata container.
-	 */
-	SimpleMetadataContainer() {
-		this(new HashMap<>());
-	}
-	
-	@Override
-	public void addMetadataEntry(String key, String value) {
-		this.metadataStore.put(key, value);
-	}
-	
-	@Override
-	public void removeMetadataEntry(String key) {
-		this.metadataStore.remove(key);
-	}
-	
-	@Override
-	public boolean containsMetadataEntry(String key) {
-		return this.metadataStore.containsKey(key);
-	}
-	
-	@Override
-	public String getMetadataValue(String key) {
-		return metadataStore.get(key);
-	}
-	
-	@Override
-	public String toString() {
-		return "SimpleMetadataContainer{" +
-			"metadataStore=" + metadataStore +
-			'}';
-	}
+
+    /**
+     * The underlying map.
+     */
+    private final Map<String, String> metadataStore;
+
+    /**
+     * Create a meta data store from an already known map of entries.
+     *
+     * @param metadataStore The entries.
+     */
+    SimpleMetadataContainer(Map<String, String> metadataStore) {
+        this.metadataStore = metadataStore;
+    }
+
+    /**
+     * Create an empty metadata container.
+     */
+    SimpleMetadataContainer() {
+        this(new HashMap<>());
+    }
+
+    @Override
+    public void addMetadataEntry(String key, String value) {
+        this.metadataStore.put(key, value);
+    }
+
+    @Override
+    public void removeMetadataEntry(String key) {
+        this.metadataStore.remove(key);
+    }
+
+    @Override
+    public boolean containsMetadataEntry(String key) {
+        return this.metadataStore.containsKey(key);
+    }
+
+    @Override
+    public String getMetadataValue(String key) {
+        return metadataStore.get(key);
+    }
+
+    @Override
+    public String toString() {
+        return "SimpleMetadataContainer{" +
+                "metadataStore=" + metadataStore +
+                '}';
+    }
 }

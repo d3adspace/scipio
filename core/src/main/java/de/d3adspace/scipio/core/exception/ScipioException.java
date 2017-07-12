@@ -27,8 +27,8 @@ package de.d3adspace.scipio.core.exception;
  * @author Felix 'SasukeKawaii' Klauke
  */
 public class ScipioException extends RuntimeException {
-	
-	public ScipioException(String message) {
-		super(message);
-	}
+
+    public ScipioException(String message) {
+        super(message);
+    }
 }

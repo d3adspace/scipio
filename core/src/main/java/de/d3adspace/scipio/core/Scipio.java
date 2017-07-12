@@ -28,30 +28,30 @@ import de.d3adspace.scipio.core.handler.FailureHandler;
  * @author Nathalie0hneHerz
  */
 public interface Scipio {
-	
-	/**
-	 * Shut down the reporter agent.
-	 */
-	void shutdown();
-	
-	/**
-	 * Handle a new incoming failure.
-	 *
-	 * @param failureDescription The failure.
-	 */
-	void handleFailure(FailureDescription failureDescription);
-	
-	/**
-	 * Add a new failure handler.
-	 *
-	 * @param failureHandler The handler.
-	 */
-	void addFailureHandler(FailureHandler failureHandler);
-	
-	/**
-	 * Remove a failure handler.
-	 *
-	 * @param failureHandler The handler.
-	 */
-	void removeFailureHandler(FailureHandler failureHandler);
+
+    /**
+     * Shut down the reporter agent.
+     */
+    void shutdown();
+
+    /**
+     * Handle a new incoming failure.
+     *
+     * @param failureDescription The failure.
+     */
+    void handleFailure(FailureDescription failureDescription);
+
+    /**
+     * Add a new failure handler.
+     *
+     * @param failureHandler The handler.
+     */
+    void addFailureHandler(FailureHandler failureHandler);
+
+    /**
+     * Remove a failure handler.
+     *
+     * @param failureHandler The handler.
+     */
+    void removeFailureHandler(FailureHandler failureHandler);
 }

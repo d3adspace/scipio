@@ -25,8 +25,8 @@ package de.d3adspace.scipio.core.priority;
  * @author Nathalie0hneHerz, Felix 'SasukeKawaii' Klauke
  */
 public enum Priority {
-	
-	ERROR,
-	WARNING,
-	CRITICAL
+
+    ERROR,
+    WARNING,
+    CRITICAL
 }

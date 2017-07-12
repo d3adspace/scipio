@@ -30,41 +30,41 @@ import de.d3adspace.scipio.core.description.FailureDescription;
  * @author Felix 'SasukeKawaii' Klauke
  */
 public class FailureReporterTask implements Runnable {
-	
-	/**
-	 * The Scipio instance the reporter is working for.
-	 */
-	private final SimpleScipio scipio;
-	
-	/**
-	 * Create a new reporter task.
-	 *
-	 * @param scipio The scipio instance to work for.
-	 */
-	public FailureReporterTask(SimpleScipio scipio) {
-		this.scipio = scipio;
-	}
-	
-	@Override
-	public void run() {
-	    while (true) {
-	    	
-		    if (this.scipio.getPendingFailures().isEmpty()) {
-			    synchronized (this) {
-				    try {
-					    this.wait();
-				    } catch (InterruptedException e) {
-					    e.printStackTrace();
-				    }
-			    }
-		    }
-	    	
-		    FailureDescription failureDescription = this.scipio.getPendingFailures().peek();
-		    
-		    if (failureDescription != null) {
-		    	this.scipio.getFailureHandlerContainer().handleFailure(failureDescription);
-		    	this.scipio.getPendingFailures().remove();
-		    }
-	    }
-	}
+
+    /**
+     * The Scipio instance the reporter is working for.
+     */
+    private final SimpleScipio scipio;
+
+    /**
+     * Create a new reporter task.
+     *
+     * @param scipio The scipio instance to work for.
+     */
+    public FailureReporterTask(SimpleScipio scipio) {
+        this.scipio = scipio;
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+
+            if (this.scipio.getPendingFailures().isEmpty()) {
+                synchronized (this) {
+                    try {
+                        this.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            FailureDescription failureDescription = this.scipio.getPendingFailures().peek();
+
+            if (failureDescription != null) {
+                this.scipio.getFailureHandlerContainer().handleFailure(failureDescription);
+                this.scipio.getPendingFailures().remove();
+            }
+        }
+    }
 }

@@ -28,35 +28,35 @@ package de.d3adspace.scipio.core.meta;
  * @author Nathalie0hneHerz
  */
 public interface MetadataContainer {
-	
-	/**
-	 * Store a new metadata entry.
-	 *
-	 * @param key The key.
-	 * @param value The value.
-	 */
-	void addMetadataEntry(String key, String value);
-	
-	/**
-	 * Remove a metadata entry.
-	 *
-	 * @param key The key.
-	 */
-	void removeMetadataEntry(String key);
-	
-	/**
-	 * Check if there is a metadata entry for the given key.
-	 *
-	 * @param key The key.
-	 * @return If there is an entry.
-	 */
-	boolean containsMetadataEntry(String key);
-	
-	/**
-	 * Get a metadata entry by its key.
-	 *
-	 * @param key The key.
-	 * @return The value.
-	 */
-	String getMetadataValue(String key);
+
+    /**
+     * Store a new metadata entry.
+     *
+     * @param key   The key.
+     * @param value The value.
+     */
+    void addMetadataEntry(String key, String value);
+
+    /**
+     * Remove a metadata entry.
+     *
+     * @param key The key.
+     */
+    void removeMetadataEntry(String key);
+
+    /**
+     * Check if there is a metadata entry for the given key.
+     *
+     * @param key The key.
+     * @return If there is an entry.
+     */
+    boolean containsMetadataEntry(String key);
+
+    /**
+     * Get a metadata entry by its key.
+     *
+     * @param key The key.
+     * @return The value.
+     */
+    String getMetadataValue(String key);
 }

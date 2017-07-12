@@ -30,64 +30,64 @@ import de.d3adspace.scipio.core.provider.FailureProvider;
  * @author Felix 'SasukeKawaii' Klauke
  */
 public class FailureDescriptionFactory {
-	
-	/**
-	 * Create a new description based on a provider.
-	 *
-	 * @param failureProvider The provider.
-	 * @return The description.
-	 */
-	public static FailureDescription createFailureDescription(FailureProvider failureProvider) {
-		return createFailureDescription(failureProvider, System.currentTimeMillis());
-	}
-	
-	/**
-	 * Create a new descripion based on a provider and a timestamp.
-	 *
-	 * @param failureProvider The provider.
-	 * @param timestamp The timestamp.
-	 * @return The description.
-	 */
-	public static FailureDescription createFailureDescription(FailureProvider failureProvider,
-		long timestamp) {
-		return createFailureDescription(failureProvider.getSystem(),
-			failureProvider.getApplication(), failureProvider.getFailure(),
-			failureProvider.getPriority(), timestamp);
-	}
-	
-	/**
-	 * Create a description based on all its data except the timestamp. Current timestamp will be used.
-	 *
-	 * @param system The system.
-	 * @param application The application.
-	 * @param failure The failure.
-	 * @param priority The priority.
-	 * @return The description.
-	 */
-	public static FailureDescription createFailureDescription(String system, String application,
-		String failure,
-		Priority priority) {
-		
-		return createFailureDescription(system, application, failure, priority,
-			System.currentTimeMillis());
-	}
-	
-	/**
-	 * Createa a description based on all its data.
-	 *
-	 * @param system The system.
-	 * @param application The application.
-	 * @param failure The failure.
-	 * @param priority The priority.
-	 * @param timestamp The timestamp-
-	 * @return The description.
-	 */
-	public static FailureDescription createFailureDescription(String system, String application,
-		String failure,
-		Priority priority, long timestamp) {
-		
-		return new FailureDescriptionBuilder().setSystem(system).setApplication(application)
-			.setFailure(failure).setPriority(priority).setTimestamp(timestamp)
-			.createSimpleFailureDescription();
-	}
+
+    /**
+     * Create a new description based on a provider.
+     *
+     * @param failureProvider The provider.
+     * @return The description.
+     */
+    public static FailureDescription createFailureDescription(FailureProvider failureProvider) {
+        return createFailureDescription(failureProvider, System.currentTimeMillis());
+    }
+
+    /**
+     * Create a new descripion based on a provider and a timestamp.
+     *
+     * @param failureProvider The provider.
+     * @param timestamp       The timestamp.
+     * @return The description.
+     */
+    public static FailureDescription createFailureDescription(FailureProvider failureProvider,
+                                                              long timestamp) {
+        return createFailureDescription(failureProvider.getSystem(),
+                failureProvider.getApplication(), failureProvider.getFailure(),
+                failureProvider.getPriority(), timestamp);
+    }
+
+    /**
+     * Create a description based on all its data except the timestamp. Current timestamp will be used.
+     *
+     * @param system      The system.
+     * @param application The application.
+     * @param failure     The failure.
+     * @param priority    The priority.
+     * @return The description.
+     */
+    public static FailureDescription createFailureDescription(String system, String application,
+                                                              String failure,
+                                                              Priority priority) {
+
+        return createFailureDescription(system, application, failure, priority,
+                System.currentTimeMillis());
+    }
+
+    /**
+     * Createa a description based on all its data.
+     *
+     * @param system      The system.
+     * @param application The application.
+     * @param failure     The failure.
+     * @param priority    The priority.
+     * @param timestamp   The timestamp-
+     * @return The description.
+     */
+    public static FailureDescription createFailureDescription(String system, String application,
+                                                              String failure,
+                                                              Priority priority, long timestamp) {
+
+        return new FailureDescriptionBuilder().setSystem(system).setApplication(application)
+                .setFailure(failure).setPriority(priority).setTimestamp(timestamp)
+                .createSimpleFailureDescription();
+    }
 }

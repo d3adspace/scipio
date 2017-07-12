@@ -29,26 +29,26 @@ import de.d3adspace.scipio.core.description.FailureDescription;
  * @author Nathalie0hneHerz, Felix 'SasukeKawaii' Klauke
  */
 public interface FailureHandlerContainer {
-	
-	
-	/**
-	 * Add a new handler.
-	 *
-	 * @param failureHandler The handler.
-	 */
-	void addFailureHandler(FailureHandler failureHandler);
-	
-	/**
-	 * Remove an old handler.
-	 *
-	 * @param failureHandler The handler.
-	 */
-	void removeFailureHandler(FailureHandler failureHandler);
-	
-	/**
-	 * Handle a failure.
-	 *
-	 * @param description The failure.
-	 */
-	void handleFailure(FailureDescription description);
+
+
+    /**
+     * Add a new handler.
+     *
+     * @param failureHandler The handler.
+     */
+    void addFailureHandler(FailureHandler failureHandler);
+
+    /**
+     * Remove an old handler.
+     *
+     * @param failureHandler The handler.
+     */
+    void removeFailureHandler(FailureHandler failureHandler);
+
+    /**
+     * Handle a failure.
+     *
+     * @param description The failure.
+     */
+    void handleFailure(FailureDescription description);
 }

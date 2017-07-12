@@ -27,6 +27,7 @@ import de.d3adspace.scipio.core.executor.FailureReporterTask;
 import de.d3adspace.scipio.core.handler.FailureHandler;
 import de.d3adspace.scipio.core.handler.FailureHandlerContainer;
 import de.d3adspace.scipio.core.handler.FailureHandlerContainerFactory;
+
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
@@ -38,95 +39,95 @@ import java.util.concurrent.Executors;
  * @author Nathalie0hneHerz, Felix 'SasukeKawaii' Klauke
  */
 public class SimpleScipio implements Scipio {
-	
-	/**
-	 * Handle all pending Failures and wait for the reporter to throw them into the
-	 * void.
-	 */
-	private final Queue<FailureDescription> pendingFailures;
-	
-	/**
-	 * The container for all failure handlers.
-	 */
-	private final FailureHandlerContainer failureHandlerContainer;
-	
-	/**
-	 * The executor of the failure reporter.
-	 */
-	private final ExecutorService executorService;
-	
-	/**
-	 * Reporter Agent for all failures.
-	 */
-	private final FailureReporterTask reporter;
-	
-	/**
-	 * Create a new scipion instance.
-	 */
-	SimpleScipio() {
-		this.pendingFailures = new ConcurrentLinkedQueue<>();
-		this.failureHandlerContainer = FailureHandlerContainerFactory
-			.createFailureHandlerContainer();
-		this.executorService = Executors.newSingleThreadExecutor();
-		this.reporter = new FailureReporterTask(this);
-		
-		this.runReporterTask();
-	}
-	
-	/**
-	 * Start the failure agent.
-	 */
-	private void runReporterTask() {
-		this.executorService.execute(this.reporter);
-	}
-	
-	@Override
-	public void shutdown() {
-		this.executorService.shutdown();
-	}
-	
-	@Override
-	public void handleFailure(FailureDescription failureDescription) {
-		if (this.executorService.isShutdown()) {
-			throw new ScipioException("Cant handle a failure when I was already stopped.");
-		}
-		
-		this.pendingFailures.offer(failureDescription);
-		
-		synchronized (reporter) {
-			this.reporter.notify();
-		}
-	}
-	
-	@Override
-	public void addFailureHandler(FailureHandler failureHandler) {
-		if (this.executorService.isShutdown()) {
-			throw new ScipioException("Cant add a handler when I was already stopped.");
-		}
-		
-		this.failureHandlerContainer.addFailureHandler(failureHandler);
-	}
-	
-	@Override
-	public void removeFailureHandler(FailureHandler failureHandler) {
-		this.failureHandlerContainer.removeFailureHandler(failureHandler);
-	}
-	
-	/**
-	 * Get the queue of all waiting failures.
-	 *
-	 * @return The failures.
-	 */
-	public Queue<FailureDescription> getPendingFailures() {
-		return pendingFailures;
-	}
-	
-	/**
-	 * Get all handlers.
-	 *
-	 * @return The handler container.
-	 */
-	public FailureHandlerContainer getFailureHandlerContainer() {
-		return failureHandlerContainer;
-	}
+
+    /**
+     * Handle all pending Failures and wait for the reporter to throw them into the
+     * void.
+     */
+    private final Queue<FailureDescription> pendingFailures;
+
+    /**
+     * The container for all failure handlers.
+     */
+    private final FailureHandlerContainer failureHandlerContainer;
+
+    /**
+     * The executor of the failure reporter.
+     */
+    private final ExecutorService executorService;
+
+    /**
+     * Reporter Agent for all failures.
+     */
+    private final FailureReporterTask reporter;
+
+    /**
+     * Create a new scipion instance.
+     */
+    SimpleScipio() {
+        this.pendingFailures = new ConcurrentLinkedQueue<>();
+        this.failureHandlerContainer = FailureHandlerContainerFactory
+                .createFailureHandlerContainer();
+        this.executorService = Executors.newSingleThreadExecutor();
+        this.reporter = new FailureReporterTask(this);
+
+        this.runReporterTask();
+    }
+
+    /**
+     * Start the failure agent.
+     */
+    private void runReporterTask() {
+        this.executorService.execute(this.reporter);
+    }
+
+    @Override
+    public void shutdown() {
+        this.executorService.shutdown();
+    }
+
+    @Override
+    public void handleFailure(FailureDescription failureDescription) {
+        if (this.executorService.isShutdown()) {
+            throw new ScipioException("Cant handle a failure when I was already stopped.");
+        }
+
+        this.pendingFailures.offer(failureDescription);
+
+        synchronized (reporter) {
+            this.reporter.notify();
+        }
+    }
+
+    @Override
+    public void addFailureHandler(FailureHandler failureHandler) {
+        if (this.executorService.isShutdown()) {
+            throw new ScipioException("Cant add a handler when I was already stopped.");
+        }
+
+        this.failureHandlerContainer.addFailureHandler(failureHandler);
+    }
+
+    @Override
+    public void removeFailureHandler(FailureHandler failureHandler) {
+        this.failureHandlerContainer.removeFailureHandler(failureHandler);
+    }
+
+    /**
+     * Get the queue of all waiting failures.
+     *
+     * @return The failures.
+     */
+    public Queue<FailureDescription> getPendingFailures() {
+        return pendingFailures;
+    }
+
+    /**
+     * Get all handlers.
+     *
+     * @return The handler container.
+     */
+    public FailureHandlerContainer getFailureHandlerContainer() {
+        return failureHandlerContainer;
+    }
 }

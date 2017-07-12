@@ -27,18 +27,18 @@ package de.d3adspace.scipio.core;
  * @author Felix 'SasukeKawaii' Klauke, Nathalie0hneHerz
  */
 public class ScipioFactory {
-	
-	/**
-	 * Instance for singleton like one instance policy
-	 */
-	private static Scipio scipio;
-	
-	/**
-	 * The one and only way to instantiate scipio.
-	 *
-	 * @return The scipio instance.
-	 */
-	public static Scipio createScipio() {
-		return scipio == null ? (scipio = new SimpleScipio()) : scipio;
-	}
+
+    /**
+     * Instance for singleton like one instance policy
+     */
+    private static Scipio scipio;
+
+    /**
+     * The one and only way to instantiate scipio.
+     *
+     * @return The scipio instance.
+     */
+    public static Scipio createScipio() {
+        return scipio == null ? (scipio = new SimpleScipio()) : scipio;
+    }
 }

@@ -27,10 +27,10 @@ import de.d3adspace.scipio.core.priority.Priority;
 /**
  * Representing the description of a failure accoured in any sort of system managed by the
  * scipio containing application.
- *
+ * <p>
  * Each failure can have metadata of string key - value pairs. In this meta data store you
  * can provide useful information about the error. Example:
- *
+ * <p>
  * If you have an error like node-01.game-server-daemon.lowmemory you could append the amount
  * of free and allocated memory to make more detailed error reporting and presentation possible.
  * You can even append a little history with a detailed analysis.
@@ -38,60 +38,60 @@ import de.d3adspace.scipio.core.priority.Priority;
  * @author Felix 'SasukeKawaii' Klauke, Nathalie0hneHerz
  */
 public interface FailureDescription {
-	
-	/**
-	 * All error should contain an unique identifier in the format of
-	 *
-	 * {system}.{application}.{failure}
-	 *
-	 * By this Id you can find out where exactly the failure happened. For example this could
-	 * look like:
-	 *
-	 * node-01.game-server-daemon.notenoughmemory
-	 *
-	 * @return The unique Identifier
-	 */
-	String getErrorId();
-	
-	/**
-	 * Get the system the failure occured in.
-	 *
-	 * @return The system.
-	 */
-	String getSystem();
-	
-	/**
-	 * Get the application the failure occured in.
-	 *
-	 * @return The application
-	 */
-	String getApplication();
-	
-	/**
-	 * Get the failure.
-	 *
-	 * @return The failure.
-	 */
-	String getFailure();
-	
-	/**
-	 * Get the Priority of a failure.
-	 *
-	 * @return The priority.
-	 */
-	Priority getPriority();
-	
-	/**
-	 * Gets the meta data storage for the failure.
-	 *
-	 * @return The metadata store.
-	 */
-	MetadataContainer getMetadata();
-	
-	/**
-	 * When did the failure occur?
-	 *
-	 * @return The timestamp.
-	 */
-	long getTimestamp();
+
+    /**
+     * All error should contain an unique identifier in the format of
+     * <p>
+     * {system}.{application}.{failure}
+     * <p>
+     * By this Id you can find out where exactly the failure happened. For example this could
+     * look like:
+     * <p>
+     * node-01.game-server-daemon.notenoughmemory
+     *
+     * @return The unique Identifier
+     */
+    String getErrorId();
+
+    /**
+     * Get the system the failure occured in.
+     *
+     * @return The system.
+     */
+    String getSystem();
+
+    /**
+     * Get the application the failure occured in.
+     *
+     * @return The application
+     */
+    String getApplication();
+
+    /**
+     * Get the failure.
+     *
+     * @return The failure.
+     */
+    String getFailure();
+
+    /**
+     * Get the Priority of a failure.
+     *
+     * @return The priority.
+     */
+    Priority getPriority();
+
+    /**
+     * Gets the meta data storage for the failure.
+     *
+     * @return The metadata store.
+     */
+    MetadataContainer getMetadata();
+
+    /**
+     * When did the failure occur?
+     *
+     * @return The timestamp.
+     */
+    long getTimestamp();
 }

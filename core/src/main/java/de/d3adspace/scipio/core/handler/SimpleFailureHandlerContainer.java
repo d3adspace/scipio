@@ -22,6 +22,7 @@
 package de.d3adspace.scipio.core.handler;
 
 import de.d3adspace.scipio.core.description.FailureDescription;
+
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -29,40 +30,40 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * @author Felix 'SasukeKawaii' Klauke
  */
 public class SimpleFailureHandlerContainer implements FailureHandlerContainer {
-	
-	/**
-	 * The underlying list
-	 */
-	private final List<FailureHandler> failureHandlers;
-	
-	/**
-	 * Create a new container from a list of handlers.
-	 *
-	 * @param failureHandlers The handlers.
-	 */
-	SimpleFailureHandlerContainer(List<FailureHandler> failureHandlers) {
-		this.failureHandlers = failureHandlers;
-	}
-	
-	/**
-	 * Create an empty container.
-	 */
-	SimpleFailureHandlerContainer() {
-		this(new CopyOnWriteArrayList<>());
-	}
-	
-	@Override
-	public void addFailureHandler(FailureHandler failureHandler) {
-		this.failureHandlers.add(failureHandler);
-	}
-	
-	@Override
-	public void removeFailureHandler(FailureHandler failureHandler) {
-		this.failureHandlers.remove(failureHandler);
-	}
-	
-	@Override
-	public void handleFailure(FailureDescription description) {
-		this.failureHandlers.forEach(failureHandler -> failureHandler.handleFailure(description));
-	}
+
+    /**
+     * The underlying list
+     */
+    private final List<FailureHandler> failureHandlers;
+
+    /**
+     * Create a new container from a list of handlers.
+     *
+     * @param failureHandlers The handlers.
+     */
+    SimpleFailureHandlerContainer(List<FailureHandler> failureHandlers) {
+        this.failureHandlers = failureHandlers;
+    }
+
+    /**
+     * Create an empty container.
+     */
+    SimpleFailureHandlerContainer() {
+        this(new CopyOnWriteArrayList<>());
+    }
+
+    @Override
+    public void addFailureHandler(FailureHandler failureHandler) {
+        this.failureHandlers.add(failureHandler);
+    }
+
+    @Override
+    public void removeFailureHandler(FailureHandler failureHandler) {
+        this.failureHandlers.remove(failureHandler);
+    }
+
+    @Override
+    public void handleFailure(FailureDescription description) {
+        this.failureHandlers.forEach(failureHandler -> failureHandler.handleFailure(description));
+    }
 }

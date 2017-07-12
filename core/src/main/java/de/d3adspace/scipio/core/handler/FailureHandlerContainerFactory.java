@@ -25,8 +25,8 @@ package de.d3adspace.scipio.core.handler;
  * @author Felix 'SasukeKawaii' Klauke
  */
 public class FailureHandlerContainerFactory {
-	
-	public static FailureHandlerContainer createFailureHandlerContainer() {
-		return new SimpleFailureHandlerContainer();
-	}
+
+    public static FailureHandlerContainer createFailureHandlerContainer() {
+        return new SimpleFailureHandlerContainer();
+    }
 }

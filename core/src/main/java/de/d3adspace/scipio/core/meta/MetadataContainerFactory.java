@@ -27,8 +27,8 @@ package de.d3adspace.scipio.core.meta;
  * @author Felix 'SasukeKawaii' Klauke
  */
 public class MetadataContainerFactory {
-	
-	public static MetadataContainer creatMetadataContainer() {
-		return new SimpleMetadataContainer();
-	}
+
+    public static MetadataContainer creatMetadataContainer() {
+        return new SimpleMetadataContainer();
+    }
 }

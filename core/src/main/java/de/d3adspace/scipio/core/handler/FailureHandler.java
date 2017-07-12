@@ -29,11 +29,11 @@ import de.d3adspace.scipio.core.description.FailureDescription;
  * @author Felix 'SasukeKawaii' Klauke
  */
 public interface FailureHandler {
-	
-	/**
-	 * Handle a failure.
-	 *
-	 * @param failureDescription The failure.
-	 */
-	void handleFailure(FailureDescription failureDescription);
+
+    /**
+     * Handle a failure.
+     *
+     * @param failureDescription The failure.
+     */
+    void handleFailure(FailureDescription failureDescription);
 }

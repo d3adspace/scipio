@@ -30,32 +30,32 @@ import de.d3adspace.scipio.core.priority.Priority;
  * @author Nathalie0hneHerz, Felix 'SasukeKawaii' Klauke
  */
 public interface FailureProvider {
-	
-	/**
-	 * Get the system the failure occured on.
-	 *
-	 * @return The system.
-	 */
-	String getSystem();
-	
-	/**
-	 * Get the application the error occured in.
-	 *
-	 * @return The application.
-	 */
-	String getApplication();
-	
-	/**
-	 * The failure that occured.
-	 *
-	 * @return The failure.
-	 */
-	String getFailure();
-	
-	/**
-	 * The priority of the failure.
-	 *
-	 * @return The priority.
-	 */
-	Priority getPriority();
+
+    /**
+     * Get the system the failure occured on.
+     *
+     * @return The system.
+     */
+    String getSystem();
+
+    /**
+     * Get the application the error occured in.
+     *
+     * @return The application.
+     */
+    String getApplication();
+
+    /**
+     * The failure that occured.
+     *
+     * @return The failure.
+     */
+    String getFailure();
+
+    /**
+     * The priority of the failure.
+     *
+     * @return The priority.
+     */
+    Priority getPriority();
 }

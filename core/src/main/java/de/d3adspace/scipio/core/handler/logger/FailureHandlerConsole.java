@@ -30,9 +30,9 @@ import de.d3adspace.scipio.core.handler.FailureHandler;
  * @author Felix 'SasukeKawaii' Klauke
  */
 public class FailureHandlerConsole implements FailureHandler {
-	
-	@Override
-	public void handleFailure(FailureDescription failureDescription) {
-		System.out.println(failureDescription);
-	}
+
+    @Override
+    public void handleFailure(FailureDescription failureDescription) {
+        System.out.println(failureDescription);
+    }
 }

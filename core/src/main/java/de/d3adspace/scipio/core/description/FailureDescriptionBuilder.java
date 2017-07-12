@@ -27,93 +27,93 @@ import de.d3adspace.scipio.core.priority.Priority;
  * Basic Builder to create a custom failure description.
  */
 public class FailureDescriptionBuilder {
-	
-	/**
-	 * The system the failure occured on.
-	 */
-	private String system;
-	
-	/**
-	 * The application the failure occured in.
-	 */
-	private String application;
-	
-	/**
-	 * The failure.
-	 */
-	private String failure;
-	
-	/**
-	 * The priority of the failure.
-	 */
-	private Priority priority;
-	
-	/**
-	 * The timestamp when the failure occured.
-	 */
-	private long timestamp;
-	
-	/**
-	 * Set the system.
-	 *
-	 * @param system The system.
-	 * @return The builder.
-	 */
-	public FailureDescriptionBuilder setSystem(String system) {
-		this.system = system;
-		return this;
-	}
-	
-	/**
-	 * Set the application.
-	 *
-	 * @param application The application.
-	 * @return The builder.
-	 */
-	public FailureDescriptionBuilder setApplication(String application) {
-		this.application = application;
-		return this;
-	}
-	
-	/**
-	 * Set the failure.
-	 *
-	 * @param failure The failure.
-	 * @return The builder.
-	 */
-	public FailureDescriptionBuilder setFailure(String failure) {
-		this.failure = failure;
-		return this;
-	}
-	
-	/**
-	 * Set the priority.
-	 *
-	 * @param priority The priority.
-	 * @return The builder.
-	 */
-	public FailureDescriptionBuilder setPriority(Priority priority) {
-		this.priority = priority;
-		return this;
-	}
-	
-	/**
-	 * Set the timestamp.
-	 *
-	 * @param timestamp The timestamp.
-	 * @return The builder.
-	 */
-	public FailureDescriptionBuilder setTimestamp(long timestamp) {
-		this.timestamp = timestamp;
-		return this;
-	}
-	
-	/**
-	 * Create the description.
-	 *
-	 * @return The failure description.
-	 */
-	public SimpleFailureDescription createSimpleFailureDescription() {
-		return new SimpleFailureDescription(system, application, failure, priority, timestamp);
-	}
+
+    /**
+     * The system the failure occured on.
+     */
+    private String system;
+
+    /**
+     * The application the failure occured in.
+     */
+    private String application;
+
+    /**
+     * The failure.
+     */
+    private String failure;
+
+    /**
+     * The priority of the failure.
+     */
+    private Priority priority;
+
+    /**
+     * The timestamp when the failure occured.
+     */
+    private long timestamp;
+
+    /**
+     * Set the system.
+     *
+     * @param system The system.
+     * @return The builder.
+     */
+    public FailureDescriptionBuilder setSystem(String system) {
+        this.system = system;
+        return this;
+    }
+
+    /**
+     * Set the application.
+     *
+     * @param application The application.
+     * @return The builder.
+     */
+    public FailureDescriptionBuilder setApplication(String application) {
+        this.application = application;
+        return this;
+    }
+
+    /**
+     * Set the failure.
+     *
+     * @param failure The failure.
+     * @return The builder.
+     */
+    public FailureDescriptionBuilder setFailure(String failure) {
+        this.failure = failure;
+        return this;
+    }
+
+    /**
+     * Set the priority.
+     *
+     * @param priority The priority.
+     * @return The builder.
+     */
+    public FailureDescriptionBuilder setPriority(Priority priority) {
+        this.priority = priority;
+        return this;
+    }
+
+    /**
+     * Set the timestamp.
+     *
+     * @param timestamp The timestamp.
+     * @return The builder.
+     */
+    public FailureDescriptionBuilder setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+        return this;
+    }
+
+    /**
+     * Create the description.
+     *
+     * @return The failure description.
+     */
+    public SimpleFailureDescription createSimpleFailureDescription() {
+        return new SimpleFailureDescription(system, application, failure, priority, timestamp);
+    }
 }

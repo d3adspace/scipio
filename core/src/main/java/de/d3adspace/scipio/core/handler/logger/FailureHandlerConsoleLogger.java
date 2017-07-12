@@ -23,6 +23,7 @@ package de.d3adspace.scipio.core.handler.logger;
 
 import de.d3adspace.scipio.core.description.FailureDescription;
 import de.d3adspace.scipio.core.handler.FailureHandler;
+
 import java.util.logging.Logger;
 
 /**
@@ -31,12 +32,12 @@ import java.util.logging.Logger;
  * @author Felix 'SasukeKawaii' Klauke, Nathalie0hneHerz
  */
 public class FailureHandlerConsoleLogger implements FailureHandler {
-	
-	private final Logger logger = Logger
-		.getLogger(FailureHandlerConsoleLogger.class.getSimpleName());
-	
-	@Override
-	public void handleFailure(FailureDescription failureDescription) {
-		this.logger.warning(String.valueOf(failureDescription));
-	}
+
+    private final Logger logger = Logger
+            .getLogger(FailureHandlerConsoleLogger.class.getSimpleName());
+
+    @Override
+    public void handleFailure(FailureDescription failureDescription) {
+        this.logger.warning(String.valueOf(failureDescription));
+    }
 }

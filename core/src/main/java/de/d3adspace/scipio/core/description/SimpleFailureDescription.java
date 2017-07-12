@@ -29,68 +29,68 @@ import de.d3adspace.scipio.core.priority.Priority;
  * @author Nathalie0hneHerz
  */
 public class SimpleFailureDescription implements FailureDescription {
-	
-	private final MetadataContainer metadata;
-	private final String system;
-	private final String application;
-	private final String failure;
-	private final Priority priority;
-	private final long timestamp;
-	
-	SimpleFailureDescription(String system, String application, String failure,
-		Priority priority, long timestamp) {
-		this.system = system;
-		this.application = application;
-		this.failure = failure;
-		this.priority = priority;
-		this.timestamp = timestamp;
-		this.metadata = MetadataContainerFactory.creatMetadataContainer();
-	}
-	
-	@Override
-	public String getErrorId() {
-		return String.format("%s.%s.%s", system, application, failure);
-	}
-	
-	@Override
-	public String getSystem() {
-		return system;
-	}
-	
-	@Override
-	public String getApplication() {
-		return application;
-	}
-	
-	@Override
-	public String getFailure() {
-		return failure;
-	}
-	
-	@Override
-	public Priority getPriority() {
-		return this.priority;
-	}
-	
-	@Override
-	public MetadataContainer getMetadata() {
-		return this.metadata;
-	}
-	
-	@Override
-	public long getTimestamp() {
-		return timestamp;
-	}
-	
-	@Override
-	public String toString() {
-		return "SimpleFailureDescription{" +
-			"metadata=" + metadata +
-			", system='" + system + '\'' +
-			", application='" + application + '\'' +
-			", failure='" + failure + '\'' +
-			", priority=" + priority +
-			", timestamp=" + timestamp +
-			'}';
-	}
+
+    private final MetadataContainer metadata;
+    private final String system;
+    private final String application;
+    private final String failure;
+    private final Priority priority;
+    private final long timestamp;
+
+    SimpleFailureDescription(String system, String application, String failure,
+                             Priority priority, long timestamp) {
+        this.system = system;
+        this.application = application;
+        this.failure = failure;
+        this.priority = priority;
+        this.timestamp = timestamp;
+        this.metadata = MetadataContainerFactory.creatMetadataContainer();
+    }
+
+    @Override
+    public String getErrorId() {
+        return String.format("%s.%s.%s", system, application, failure);
+    }
+
+    @Override
+    public String getSystem() {
+        return system;
+    }
+
+    @Override
+    public String getApplication() {
+        return application;
+    }
+
+    @Override
+    public String getFailure() {
+        return failure;
+    }
+
+    @Override
+    public Priority getPriority() {
+        return this.priority;
+    }
+
+    @Override
+    public MetadataContainer getMetadata() {
+        return this.metadata;
+    }
+
+    @Override
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    @Override
+    public String toString() {
+        return "SimpleFailureDescription{" +
+                "metadata=" + metadata +
+                ", system='" + system + '\'' +
+                ", application='" + application + '\'' +
+                ", failure='" + failure + '\'' +
+                ", priority=" + priority +
+                ", timestamp=" + timestamp +
+                '}';
+    }
 }
