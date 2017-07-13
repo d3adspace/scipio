@@ -21,6 +21,8 @@
 
 package de.d3adspace.scipio.core.meta;
 
+import java.util.Map;
+
 /**
  * A container as a metadata store to prohibit direct access to the meta data and reduce the
  * access options down to basic CRUD operations.
@@ -59,4 +61,6 @@ public interface MetadataContainer {
      * @return The value.
      */
     String getMetadataValue(String key);
+
+    Map<String, String> getMetadataStore();
 }

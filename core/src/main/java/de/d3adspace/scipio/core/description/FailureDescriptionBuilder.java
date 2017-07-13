@@ -51,7 +51,7 @@ public class FailureDescriptionBuilder {
     /**
      * The timestamp when the failure occured.
      */
-    private long timestamp;
+    private long timestamp = System.currentTimeMillis();
 
     /**
      * Set the system.

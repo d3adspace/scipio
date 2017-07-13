@@ -21,6 +21,8 @@
 
 package de.d3adspace.scipio.core.meta;
 
+import java.util.Map;
+
 /**
  * Factory for all meta containers.
  *
@@ -28,7 +30,11 @@ package de.d3adspace.scipio.core.meta;
  */
 public class MetadataContainerFactory {
 
-    public static MetadataContainer creatMetadataContainer() {
+    public static MetadataContainer createMetadataContainer() {
         return new SimpleMetadataContainer();
+    }
+
+    public static MetadataContainer createMetadataContainer(Map<String, String> handle) {
+        return new SimpleMetadataContainer(handle);
     }
 }

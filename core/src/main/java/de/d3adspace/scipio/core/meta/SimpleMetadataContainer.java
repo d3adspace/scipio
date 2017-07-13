@@ -73,6 +73,11 @@ public class SimpleMetadataContainer implements MetadataContainer {
     }
 
     @Override
+    public Map<String, String> getMetadataStore() {
+        return metadataStore;
+    }
+
+    @Override
     public String toString() {
         return "SimpleMetadataContainer{" +
                 "metadataStore=" + metadataStore +

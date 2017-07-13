@@ -44,7 +44,7 @@ public class SimpleFailureDescription implements FailureDescription {
         this.failure = failure;
         this.priority = priority;
         this.timestamp = timestamp;
-        this.metadata = MetadataContainerFactory.creatMetadataContainer();
+        this.metadata = MetadataContainerFactory.createMetadataContainer();
     }
 
     @Override
