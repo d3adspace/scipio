@@ -22,7 +22,7 @@
 package de.d3adspace.scipio.core.exception;
 
 /**
- * An exception that should announce that scipio was unable to handle a failure.
+ * The mother of all exceptions.
  *
  * @author Felix 'SasukeKawaii' Klauke
  */

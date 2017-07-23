@@ -1,6 +1,7 @@
 # Scipio 
 What you see here is a lightweight but robust and powerful error
-reporting framework. You can use custom handlers to broadcast failure
+reporting framework without any external dependencies.
+ You can use custom handlers to broadcast failure
 descriptions across your internal network. You can provide those failures
 in an enumeration or built a fully custom one.
 
