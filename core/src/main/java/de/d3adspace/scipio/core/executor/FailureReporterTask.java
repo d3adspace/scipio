@@ -62,7 +62,7 @@ public class FailureReporterTask implements Runnable {
             FailureDescription failureDescription = this.scipio.getPendingFailures().peek();
 
             if (failureDescription != null) {
-                this.scipio.getFailureHandlerContainer().handleFailure(failureDescription);
+                this.scipio.getFailureHandlers().forEach(failureHandler -> failureHandler.handleFailure(failureDescription));
                 this.scipio.getPendingFailures().remove();
             }
         }

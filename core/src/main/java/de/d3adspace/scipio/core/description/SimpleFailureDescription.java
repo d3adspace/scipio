@@ -21,16 +21,18 @@
 
 package de.d3adspace.scipio.core.description;
 
-import de.d3adspace.scipio.core.meta.MetadataContainer;
-import de.d3adspace.scipio.core.meta.MetadataContainerFactory;
+import com.google.common.collect.Maps;
 import de.d3adspace.scipio.core.priority.Priority;
+
+import java.util.Map;
 
 /**
  * @author Nathalie0hneHerz
+ * @author Felix Klauke <info@felix-klauke.de>
  */
 public class SimpleFailureDescription implements FailureDescription {
 
-    private final MetadataContainer metadata;
+    private final Map<String, String> metadata = Maps.newHashMap();
     private final String system;
     private final String application;
     private final String failure;
@@ -44,7 +46,6 @@ public class SimpleFailureDescription implements FailureDescription {
         this.failure = failure;
         this.priority = priority;
         this.timestamp = timestamp;
-        this.metadata = MetadataContainerFactory.createMetadataContainer();
     }
 
     @Override
@@ -73,24 +74,12 @@ public class SimpleFailureDescription implements FailureDescription {
     }
 
     @Override
-    public MetadataContainer getMetadata() {
-        return this.metadata;
+    public Map<String, String> getMetadata() {
+        return metadata;
     }
 
     @Override
     public long getTimestamp() {
         return timestamp;
-    }
-
-    @Override
-    public String toString() {
-        return "SimpleFailureDescription{" +
-                "metadata=" + metadata +
-                ", system='" + system + '\'' +
-                ", application='" + application + '\'' +
-                ", failure='" + failure + '\'' +
-                ", priority=" + priority +
-                ", timestamp=" + timestamp +
-                '}';
     }
 }

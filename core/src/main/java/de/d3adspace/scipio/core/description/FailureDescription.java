@@ -21,8 +21,9 @@
 
 package de.d3adspace.scipio.core.description;
 
-import de.d3adspace.scipio.core.meta.MetadataContainer;
 import de.d3adspace.scipio.core.priority.Priority;
+
+import java.util.Map;
 
 /**
  * Representing the description of a failure accoured in any sort of system managed by the
@@ -86,7 +87,7 @@ public interface FailureDescription {
      *
      * @return The metadata store.
      */
-    MetadataContainer getMetadata();
+    Map<String, String> getMetadata();
 
     /**
      * When did the failure occur?

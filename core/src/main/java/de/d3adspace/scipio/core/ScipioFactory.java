@@ -22,11 +22,18 @@
 package de.d3adspace.scipio.core;
 
 /**
- * Create a new scipio instance.
+ * Create a new scipio instance. Warning: This will always return a singleton instance.
  *
  * @author Felix 'SasukeKawaii' Klauke, Nathalie0hneHerz
  */
 public class ScipioFactory {
+
+    /**
+     * Stub constructor.
+     */
+    ScipioFactory() {
+        throw new AssertionError("Factories may not be instantiated.");
+    }
 
     /**
      * Instance for singleton like one instance policy

@@ -21,13 +21,13 @@
 
 package de.d3adspace.scipio.core;
 
+import com.google.common.collect.Lists;
 import de.d3adspace.scipio.core.description.FailureDescription;
 import de.d3adspace.scipio.core.exception.ScipioException;
 import de.d3adspace.scipio.core.executor.FailureReporterTask;
 import de.d3adspace.scipio.core.handler.FailureHandler;
-import de.d3adspace.scipio.core.handler.FailureHandlerContainer;
-import de.d3adspace.scipio.core.handler.FailureHandlerContainerFactory;
 
+import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
@@ -49,7 +49,7 @@ public class SimpleScipio implements Scipio {
     /**
      * The container for all failure handlers.
      */
-    private final FailureHandlerContainer failureHandlerContainer;
+    private final List<FailureHandler> failureHandlers = Lists.newCopyOnWriteArrayList();
 
     /**
      * The executor of the failure reporter.
@@ -66,8 +66,6 @@ public class SimpleScipio implements Scipio {
      */
     SimpleScipio() {
         this.pendingFailures = new ConcurrentLinkedQueue<>();
-        this.failureHandlerContainer = FailureHandlerContainerFactory
-                .createFailureHandlerContainer();
         this.executorService = Executors.newSingleThreadExecutor();
         this.reporter = new FailureReporterTask(this);
 
@@ -105,12 +103,12 @@ public class SimpleScipio implements Scipio {
             throw new ScipioException("Cant add a handler when I was already stopped.");
         }
 
-        this.failureHandlerContainer.addFailureHandler(failureHandler);
+        failureHandlers.add(failureHandler);
     }
 
     @Override
     public void removeFailureHandler(FailureHandler failureHandler) {
-        this.failureHandlerContainer.removeFailureHandler(failureHandler);
+        failureHandlers.remove(failureHandler);
     }
 
     /**
@@ -123,11 +121,11 @@ public class SimpleScipio implements Scipio {
     }
 
     /**
-     * Get all handlers.
+     * Get all failure handlers.
      *
-     * @return The handler container.
+     * @return The failure handlers.
      */
-    public FailureHandlerContainer getFailureHandlerContainer() {
-        return failureHandlerContainer;
+    public List<FailureHandler> getFailureHandlers() {
+        return failureHandlers;
     }
 }
