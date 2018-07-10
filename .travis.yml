@@ -19,7 +19,7 @@ notifications:
   ### Actual Build Script ###
   ###########################
 script:
-- gradle check
+- ./gradlew check
 
   ###################################
   ### Upload Code Coverage Report ###
