@@ -15,10 +15,13 @@ Scipio provides two basic examples for a logger located at https://github.com/D3
 Master:
 
 [![Build Status](https://travis-ci.org/D3adspaceEnterprises/scipio.svg?branch=master)](https://travis-ci.org/D3adspaceEnterprises/scipio)
+[![codecov](https://codecov.io/gh/D3adspaceEnterprises/scipio/branch/master/graph/badge.svg)](https://codecov.io/gh/D3adspaceEnterprises/scipio)
 
 Dev:
 
 [![Build Status](https://travis-ci.org/D3adspaceEnterprises/scipio.svg?branch=dev)](https://travis-ci.org/D3adspaceEnterprises/scipio)
+[![codecov](https://codecov.io/gh/D3adspaceEnterprises/scipio/branch/dev/graph/badge.svg)](https://codecov.io/gh/D3adspaceEnterprises/scipio)
+
 
 # Installation / Usage
 
