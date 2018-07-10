@@ -10,6 +10,16 @@ to a RESTful service or just save them in a database to be reviewed from a monit
 
 Scipio provides two basic examples for a logger located at https://github.com/D3adspaceEnterprises/scipio/tree/master/src/main/java/de/d3adspace/scipio/handler/logger
 
+**Build status**
+
+Master:
+
+[![Build Status](https://travis-ci.org/D3adspaceEnterprises/scipio.svg?branch=master)](https://travis-ci.org/D3adspaceEnterprises/scipio)
+
+Dev:
+
+[![Build Status](https://travis-ci.org/D3adspaceEnterprises/scipio.svg?branch=dev)](https://travis-ci.org/D3adspaceEnterprises/scipio)
+
 # Installation / Usage
 
 - Install [Maven](http://maven.apache.org/download.cgi)
