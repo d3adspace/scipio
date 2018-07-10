@@ -1,2 +1,4 @@
+group 'de.d3adspace.rebekah'
+version '1.0-SNAPSHOT'
 
-description = ''
+description = 'Core module including reporting engine and main infrastructure.'
