@@ -1,0 +1,4 @@
+rootProject.name = 'scipio-parent'
+
+include ':scipio-core'
+project(':scipio-core').projectDir = "$rootDir/core" as File
