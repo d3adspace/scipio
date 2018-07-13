@@ -31,6 +31,10 @@ import de.d3adspace.scipio.core.provider.FailureProvider;
  */
 public class FailureDescriptionFactory {
 
+    FailureDescriptionFactory() {
+        throw new AssertionError("Factories may not be instantiated.");
+    }
+
     /**
      * Create a new description based on a provider.
      *
