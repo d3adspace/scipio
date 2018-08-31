@@ -1,4 +1,4 @@
-group 'de.d3adspace.rebekah'
+group 'de.d3adspace.scipio'
 version '1.0-SNAPSHOT'
 
 description = 'Core module including reporting engine and main infrastructure.'
