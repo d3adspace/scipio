@@ -26,7 +26,7 @@ import de.d3adspace.scipio.core.priority.Priority;
 import java.util.Map;
 
 /**
- * Representing the description of a failure accoured in any sort of system managed by the
+ * Representing the description of a failure occoured in any sort of system managed by the
  * scipio containing application.
  * <p>
  * Each failure can have metadata of string key - value pairs. In this meta data store you
