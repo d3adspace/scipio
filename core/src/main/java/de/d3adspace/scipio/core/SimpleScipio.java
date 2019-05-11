@@ -69,14 +69,14 @@ public class SimpleScipio implements Scipio {
         this.executorService = Executors.newSingleThreadExecutor();
         this.reporter = new FailureReporterTask(this);
 
-        this.runReporterTask();
+        runReporterTask();
     }
 
     /**
      * Start the failure agent.
      */
     private void runReporterTask() {
-        this.executorService.execute(this.reporter);
+        executorService.execute(this.reporter);
     }
 
     @Override
@@ -86,20 +86,20 @@ public class SimpleScipio implements Scipio {
 
     @Override
     public void handleFailure(FailureDescription failureDescription) {
-        if (this.executorService.isShutdown()) {
+        if (executorService.isShutdown()) {
             throw new ScipioException("Cant handle a failure when I was already stopped.");
         }
 
-        this.pendingFailures.offer(failureDescription);
+        pendingFailures.offer(failureDescription);
 
         synchronized (reporter) {
-            this.reporter.notify();
+            reporter.notify();
         }
     }
 
     @Override
     public void addFailureHandler(FailureHandler failureHandler) {
-        if (this.executorService.isShutdown()) {
+        if (executorService.isShutdown()) {
             throw new ScipioException("Cant add a handler when I was already stopped.");
         }
 
