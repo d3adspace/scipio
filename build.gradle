@@ -31,7 +31,7 @@ allprojects {
         /**
          * Google Guice for dependency injection.
          */
-        compile group: 'com.google.inject', name: 'guice', version: '4.2.0'
+        compile group: 'com.google.inject', name: 'guice', version: '4.2.2'
 
         /**
          * Testing for google guice.
