@@ -56,7 +56,7 @@ allprojects {
         /**
          * Vintage platform engine.
          */
-        compile group: 'org.junit.platform', name: 'junit-platform-engine', version: '1.6.2'
+        compile group: 'org.junit.platform', name: 'junit-platform-engine', version: '1.7.1'
 
         /**
          * JUnit jupiter with mockito.
